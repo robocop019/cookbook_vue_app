@@ -19,7 +19,13 @@
       <div v-for="direction in recipe.formatted.directions">
           <li>{{ direction }}</li>
       </div>
-    </ol>  
+    </ol> 
+
+    <router-link :to="'/recipes/' + recipe.id + '/edit'">
+      <button>Update Recipe</button>
+    </router-link> 
+
+    <button v-on:click='destroyRecipe()'>Delete Recipe</button>
   </div>
 </template>
 
@@ -51,10 +57,16 @@
       };
     },
     created: function() {
-      axios.get('http://localhost:3000/api/recipes/' + this.$route.params.id).then(response => {
+      axios.get('/api/recipes/' + this.$route.params.id).then(response => {
         this.recipe = response.data;
       });
     },
-    methods: {}
+    methods: {
+      destroyRecipe: function() {
+        axios.delete('/api/recipes/' + this.recipe.id).then(response => {
+          this.$router.push('/');
+        });
+      }
+    }
   };
 </script>
