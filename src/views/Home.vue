@@ -1,29 +1,6 @@
 <template>
   <div class="home">
 
-    <h1>New Recipe</h1>
-
-      <div>
-        Title: <input v-model="newRecipeTitle">
-      </div>
-
-      <div>
-        Prep Time: <input v-model="newRecipePrepTime">
-      </div>
-
-      <div>
-        Ingredients: <input v-model="newRecipeIngredients">
-      </div>
-
-      <div>
-        Directions: <input v-model="newRecipeDirections">
-      </div>
-
-      <div>
-        Image URL: <input v-model="newRecipeImageUrl">
-      </div>
-
-    <button v-on:click='createRecipe()'>Create</button>
 
     <h1>All Recipes</h1>
 
@@ -124,30 +101,6 @@
       });
     },
     methods: {
-      createRecipe: function() {
-        console.log('create the recipe...');
-
-        var params = {
-                      title: this.newRecipeTitle,
-                      prep_time: this.newRecipePrepTime,
-                      ingredients: this.newRecipeIngredients,
-                      directions: this.newRecipeDirections,
-                      image_url: this.newRecipeImageUrl
-                      };
-
-        axios.post('/api/recipes', params).then(response => {
-          console.log('Success', response.data);
-
-          this.recipes.push(response.data);
-
-          this.newRecipeTitle = '';
-          this.newRecipePrepTime = '';
-          this.newRecipeIngredients = '';
-          this.newRecipeDirections = '';
-          this.newRecipeImageUrl = '';
-        });
-      },
-
       showRecipe: function(inputRecipe) {
         if(this.currentRecipe === inputRecipe) {
           this.currentRecipe = '';
