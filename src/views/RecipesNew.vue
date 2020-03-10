@@ -3,7 +3,7 @@
     <h1>Create a New Recipe</h1>
 
     <ul>
-      <li v-for="error in errors">
+      <li class="error" v-for="error in errors">
         {{ error }}
       </li>
     </ul>
@@ -36,7 +36,7 @@
 </template>
 
 <style>
-  li {
+  .error {
     color: red;
   }
 </style>

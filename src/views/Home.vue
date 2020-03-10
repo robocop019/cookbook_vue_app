@@ -5,7 +5,7 @@
     <h1>All Recipes</h1>
 
     <div v-for="recipe in recipes">
-      <h3>{{ recipe.title }}</h3>
+      <h3><router-link :to="'/recipes/' + recipe.id"> {{ recipe.title }} </router-link></h3>
       <img :src="recipe.image_url" :alt="recipe.title">
 
       <div v-if="currentRecipe === recipe">
