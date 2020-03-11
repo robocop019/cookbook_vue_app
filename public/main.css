@@ -1,0 +1,44 @@
+body {
+  background-image: url('spikes.png');
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.card {
+  background-image: url('kollermedia-blue-diag.jpg');
+}
+
+.error {
+  color: red;
+}
+
+.recipes-show {
+  text-align: center;
+}
+
+.recipes-new h1, .recipes-edit h2 {
+  text-align: center;
+}
+
+.recipes-index {
+  text-align: center;
+}
+
+.recipes-index img {
+  max-width: 25%;
+  max-height: 25%;
+}
+
+.recipes-show img {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  margin: 10px;
+}

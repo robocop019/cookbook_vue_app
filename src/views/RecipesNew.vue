@@ -1,44 +1,51 @@
 <template>
   <div class="recipes-new">
-    <h1>Create a New Recipe</h1>
-
-    <ul>
-      <li class="error" v-for="error in errors">
-        {{ error }}
-      </li>
-    </ul>
-
-    <form v-on:submit.prevent='submit()'>
-      <div>
-        Title: <input v-model="newRecipeTitle">
-      </div>
-
-      <div>
-        Prep Time: <input v-model="newRecipePrepTime">
-      </div>
-
-      <div>
-        Ingredients: <input v-model="newRecipeIngredients">
-      </div>
-
-      <div>
-        Directions: <input v-model="newRecipeDirections">
-      </div>
-
-      <div>
-        Image URL: <input v-model="newRecipeImageUrl">
-      </div>
+    <div class="container">
       
-      <input type="submit" value='Create Recipe'>
-    </form>
+      <h1>Create a New Recipe</h1>
 
-  </div>
+      <ul>
+        <li class="error" v-for="error in errors">
+          {{ error }}
+        </li>
+      </ul>
+
+      <form v-on:submit.prevent='submit()'>
+        
+        <div class="form-group">
+          <label for="newRecipeTitle">Title</label>
+          <input class="form-control" v-model="newRecipeTitle">
+        </div>
+
+        <div class="form-group">
+          <label for="newRecipePrepTime">Prep Time</label>
+          <input class="form-control" v-model="newRecipePrepTime">
+        </div>
+
+        <div class="form-group">
+          <label for="newRecipeIngredients">Ingredients</label>
+          <input class="form-control" v-model="newRecipeIngredients">
+        </div>
+
+        <div class="form-group">
+          <label for="newRecipeDirections">Directions</label>
+          <input class="form-control" v-model="newRecipeDirections">
+        </div>
+
+        <div class="form-group">
+          <label for="newRecipeImageUrl">Image URL</label>
+          <input class="form-control" v-model="newRecipeImageUrl">
+        </div>
+        
+        <input class="btn btn-primary" type="submit" value='Create Recipe'>
+      </form>
+
+    </div> <!-- end .container -->
+  </div> <!-- end .recipes-new -->
 </template>
 
 <style>
-  .error {
-    color: red;
-  }
+  
 </style>
 
 <script>

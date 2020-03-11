@@ -1,37 +1,46 @@
 <template>
   <div class="recipes-edit">
-    <h2>Edit Recipe</h2>
-
-    <ul>
-      <li class="error" v-for="error in errors">
-        {{ error }}
-      </li>
-    </ul>
-
-    <form v-on:submit.prevent='submit()'>
-      <div>
-        Title: <input v-model="recipe.title">
-      </div>
-
-      <div>
-        Prep Time: <input v-model="recipe.prep_time">
-      </div>
-
-      <div>
-        Ingredients: <input v-model="recipe.ingredients">
-      </div>
-
-      <div>
-        Directions: <input v-model="recipe.directions">
-      </div>
-
-      <div>
-        Image URL: <input v-model="recipe.image_url">
-      </div>
+    <div class="container">
       
-      <input type="submit" value='Update Recipe'>
-    </form>
-  </div>
+      <h2>Edit Recipe</h2>
+
+      <ul>
+        <li class="error" v-for="error in errors">
+          {{ error }}
+        </li>
+      </ul>
+
+      <form v-on:submit.prevent='submit()'>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" v-model="recipe.title">
+        </div>
+
+        <div class="form-group">
+          <label for="prep_time">Prep Time</label>
+          <input class="form-control" v-model="recipe.prep_time">
+        </div>
+
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
+          <input class="form-control" v-model="recipe.ingredients">
+        </div>
+
+        <div class="form-group">
+          <label for="directions">Directions</label>
+          <input class="form-control" v-model="recipe.directions">
+        </div>
+
+        <div class="form-group">
+          <label for="image_url">Image URL</label>
+          <input class="form-control" v-model="recipe.image_url">
+        </div>
+        
+        <input class="btn btn-primary" type="submit" value='Update Recipe'>
+      </form>
+
+    </div> <!-- end .container -->
+  </div> <!-- end .recipes-edit -->
 </template>
 
 <style></style>
@@ -74,13 +83,12 @@
                       image_url: this.recipe.image_url
                       };
 
-        console.log(params);
 
         axios.patch('/api/recipes/' + this.recipe.id, params).then(response => {
           console.log('Success', response.data);
           this.$router.push('/recipes/' + this.recipe.id);
         });
-      },
+      }
     }
   };
 </script>
