@@ -28,7 +28,7 @@
 
         <div class="card-body">
           <router-link :to="'/recipes/' + recipe.id + '/edit'">
-            <button type="button" class="btn btn-primary">Update Recipe</button>
+            <button type="button" class="btn btn-info">Update Recipe</button>
           </router-link>
           <button v-on:click='destroyRecipe()' type="button" class="btn btn-danger">Delete Recipe</button>
         </div>

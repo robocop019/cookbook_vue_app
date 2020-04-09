@@ -1,11 +1,8 @@
-body {
+body, .card {
   background-image: url('spikes.png');
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.card {
-  background-image: url('kollermedia-blue-diag.jpg');
-}
 
 .error {
   color: red;
