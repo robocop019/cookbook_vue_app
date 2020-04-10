@@ -28,7 +28,7 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model='titleFilter'>
           <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
@@ -41,3 +41,13 @@
 <style>
 
 </style>
+
+<script>
+  export default {
+    data: function() {
+      return {
+              titleFilter: ''
+      };
+    }
+  };
+</script>

@@ -4,7 +4,12 @@
 
       <h1>All Recipes</h1>
 
-      <div v-for="recipe in recipes">
+      <div>
+        <button class='btn btn-info text-info bg-dark m-3' v-on:click="setSortAttribute('title')">Sort by Title</button>
+        <button class='btn btn-info text-info bg-dark m-3' v-on:click="setSortAttribute('prep_time')">Sort by Prep Time</button>
+      </div>
+
+      <div v-for="recipe in orderBy(filterBy(recipes, $parent.titleFilter, 'title'), sortAttribute)">
         <h3><router-link :to="'/recipes/' + recipe.id"> {{ recipe.title }} </router-link></h3>
         <img :src="recipe.image_url" :alt="recipe.title">
       </div>
@@ -18,12 +23,14 @@
 </style>
 
 <script>
+  import Vue2Filters from 'vue2-filters';
   var axios = require('axios');
 
   export default {
     data: function() {
       return {
-        recipes: []
+        recipes: [],
+        sortAttribute: 'title'
       };
     },
     created: function() {
@@ -31,6 +38,11 @@
         this.recipes = response.data;
       });
     },
-    methods: {}
+    methods: {
+      setSortAttribute: function(inputAttribute) {
+        this.sortAttribute = inputAttribute;
+      }
+    },
+    mixins: [Vue2Filters.mixin]
   };
 </script>
